@@ -1,5 +1,4 @@
 #include "Player.h"
-#include <vector>
 
 /**
  * Default constructor
@@ -44,13 +43,6 @@ void Player::SetPosition(Position pos){
     pos_ = pos;
 }
 
-bool valid_move(std::string move,std::vector<std::string> possible_moves){
-    for(int i=0;i<possible_moves.size();i++){
-        if(move==possible_moves[i]) return true;
-    }
-    return false;
-}
-
 /**
  * Creates one string from Players name and points
  * @param none
@@ -61,30 +53,7 @@ std::string Player::Stringify(){
     return str;
 }
 
-/**
- * Algorithm decides which direction to move the Player towards the other player
- * @param Position other: Position of other player that the function tries to move towards, vector of possible moves
- * @return string of move
-*/
-std::string Player::ToRelativePosition(Position other,std::vector<std::string> possible_moves){
-    std::string move;
-    if( other.row > other.col ){
-        if(other.row < pos_.row){   // move up
-            move = "UP";
-        } else {                    // move down
-            move = "DOWN";
-        }
-    } else if( other.row <= other.col ) {
-        if(other.col<pos_.col){     // move left
-            move = "LEFT";
-        } else {                    // move right
-            move = "RIGHT";
-        }
-    }
-    while(!valid_move(move,possible_moves)){
-        move = possible_moves[rand()%possible_moves.size()];
-    }
-    return move;
+// std::string Player::ToRelativePosition(Position other,std::vector<std::string> possible_moves){
 
-}
+// }
 

@@ -39,7 +39,7 @@ public:
 	// You may want to implement these functions as well
 	// ToRelativePosition is a function we used to translate positions
 	// into directions relative to the player (up, down, etc)
-	std::string ToRelativePosition(Position other,std::vector<std::string> possible_moves);
+	// std::string ToRelativePosition(Position other);
 
  	// Either override operator<< for Player or implement the following function
 	// Convert this player to a string representation of their name and points
